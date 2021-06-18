@@ -7,7 +7,7 @@
   "plasmaRootERC20": "0x3f152B63Ec5CA5831061B2DccFb29a874C317502",
   "plasmaChildERC20": "0x2d7882beDcbfDDce29Ba99965dd3cdF7fcB10A1e",
   "MATIC_RPC": "https://rpc-mainnet.matic.network",
-  "ETHEREUM_RPC": "https://mainnet.infura.io/v3/8af40d61a66047ca8294a0bb43b958fa",
+  "ETHEREUM_RPC": "https://mainnet.infura.io/v3/fce7ed09230548eea542d77c55357baf",
   "VERSION": "v1",
   "NETWORK": "mainnet",
   "MATIC_CHAINID": 137,
