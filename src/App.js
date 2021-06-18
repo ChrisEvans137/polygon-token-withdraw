@@ -97,7 +97,7 @@ const App = () => {
     } catch (e) {
       setLoading(false);
       if (e.message.substr(0, 28) === `Returned values aren't valid`)
-        setError('Make sure you are on Eth Network')
+        setError('Seems like you are not on Eth Network, change the network and refresh the page.')
       else if (e.message === `Cannot read property 'blockNumber' of null`)
         setError('Incorrect burn transaction hash')
       else if (e.message.substr(0, 32) === `Returned error: invalid argument`)
@@ -147,6 +147,11 @@ const App = () => {
             {error}
           </div>
         }
+        {Networkid !== config.ETHEREUM_CHAINID &&
+          <div className="alert alert-danger text-break mt-3" role="alert">
+            Seems like you are not on Eth Network, change the network and refresh the page.
+          </div>
+        }
 
         <div className="alert alert-info text-break mt-5" role="alert">
           <h2>What it does ?</h2>
@@ -173,10 +178,21 @@ const App = () => {
             <li>Confirm the transaction. Its reccomended not to lower the gas fees or the gas limit.</li>
             <li>Once the transaction gets completed, you will see a link to the transaction details on Ethereum. Do not refresh the screen.</li>
             <li>Thats it. Your tokens will be safely withdrawn to your account on Ethereum.</li>
-            <li>Note: In case you speeded up the ethereum transaction, the tx will not shown on UI.</li>
+          </ul>
+
+          <h3>Troubleshoot</h3>
+          <ul style={{ textAlign: 'left' }}>
+            <li>In case you see an invalid response error, please wait for an hour and try again later !</li>
+            <li>In case you speeded up the ethereum transaction, the tx will not shown on UI but you can see on Etherscan.</li>
           </ul>
         </div>
       </main>
+      <footer className="footer" style={{ display: 'flex', height: 60, backgroundColor: '#f5f5f5', width: '100%' }}>
+        <div className="container" style={{ width: 'auto', maxWidth: 680, padding: '0 15px', margin: 'auto' }} >
+          <span className="text-muted">Buy me a beer! 🍺: {'->'} <a target="_blank" style={{ color: '#0d6efd', textDecoration: 'underline' }}
+            href="https://etherscan.io/address/0xa421eBAd90c415D1F4447B33C23e17713E114270" rel="noreferrer">0xa421eBAd90c415D1F4447B33C23e17713E114270</a>.</span>
+        </div>
+      </footer>
     </React.Fragment>
   );
 };
